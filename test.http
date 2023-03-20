@@ -1,0 +1,38 @@
+@baseUri=http://localhost:3000
+
+###
+# @name ListPolicies
+GET {{baseUri}}/policies HTTP/1.1
+###
+
+###
+# @name postMyPolicy
+POST {{baseUri}}/mypolicy HTTP/1.1
+Content-Type: application/json
+
+{
+  "input": {
+    "user": "alice",
+    "action": "read",
+    "resource": "document"
+  }
+}
+###
+
+
+###
+# @name roles
+POST {{baseUri}}/roles HTTP/1.1
+Content-Type: application/json
+
+{
+  "input": {
+      "subject": {
+      "user": "bob",
+      "roles": ["ADMINISTRATOR", "USER"]
+    }
+  }
+}
+
+
+###

@@ -1,0 +1,43 @@
+@baseUri=http://localhost:3000
+
+
+###
+# @name jwtPost
+POST {{baseUri}}/jwtpolicy HTTP/1.1
+Content-Type: application/json
+
+{
+  "input":
+  {
+    "attributes":
+    {
+        "request":
+        {
+            "http":
+            {
+                "headers":
+                {
+                    ":authority": "example-app",
+                    ":method": "POST",
+                    ":path": "/pets/dogs",
+                    "accept": "*/*",
+                    "authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJsbmt5dHozM0J3cmdZbFNtMjhOOElzYXlRREV6bVdrbWxZQS1jZnFNUUdzIn0.eyJleHAiOjE2NzkzMzM0OTUsImlhdCI6MTY3OTMzMTk5NSwiYXV0aF90aW1lIjoxNjc5MzMxOTk1LCJqdGkiOiI3ZDczNGY2Ni02NzUxLTRiZDItOGIwNC1hNzM4NzBhYzU3YzkiLCJpc3MiOiJodHRwczovL2xvZ29uLmlhZC1lbmdhZ2UuY29tL2F1dGgvcmVhbG1zL2lhZGVuZ2FnZSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI0MTVmMDEyZS1kMGE0LTRkZjMtYjdjMC0wZTVjODFkNWFjM2EiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJwb3J0YWxlIiwic2Vzc2lvbl9zdGF0ZSI6IjRlMTgyYmNhLTI0YTItNDIyNi1hN2VkLTY2ZWE5Y2VhZTAzMSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cHM6Ly9pYWQtZW5nYWdlLmNvbSIsImh0dHBzOi8vcGxheWJhY2suaWFkLWVuZ2FnZS5jb20iLCJodHRwOi8vbG9jYWxob3N0OjMwMDEiLCJodHRwOi8vbG9jYWxob3N0OjMwMDAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIlJPTEVfR0RQUl9BRE1JTiIsIlJPTEVfQURNSU5JU1RSQVRPUiIsImRlZmF1bHQtcm9sZXMtaWFkZW5nYWdlIiwiUk9MRV9PRkZJQ0VSIiwiUk9MRV9NT09ETEVfQURNSU4iLCJST0xFX1RFU1RFUiIsIlJPTEVfQkFER0VfTUFOQUdFUiIsIlJPTEVfVVNFUiIsIm9mZmxpbmVfYWNjZXNzIiwiUk9MRV9HQU1FUiIsIlJPTEVfQURNSU4iLCJ1bWFfYXV0aG9yaXphdGlvbiIsIlJPTEVfU1VQRVJfVVNFUiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwibmFtZSI6IlNhbHZhdG9yZSBDYXNzZXR0aSIsInByZWZlcnJlZF91c2VybmFtZSI6InNjYXNzZXR0aSIsImdpdmVuX25hbWUiOiJTYWx2YXRvcmUiLCJsb2NhbGUiOiJpdCIsImZhbWlseV9uYW1lIjoiQ2Fzc2V0dGkiLCJlbWFpbCI6InNhbHZhdG9yZS5jYXNzZXR0aUBpYWQyLml0In0.bJmtV5rYROTf6vGBXdmcjU4iXA69zbLpPbeq8j6VvcFRIlwgS8YwvqUXYovSu2ImhWVzzHb7474zC8zlb9eY_PK5SIpOlYftnSUhWBl8aZwWCivJrp25jZpuAggjdVM8RYzKzNjL1ytnV8hwQgcTXLuDlfNJKk04Kb_5mfInL9N5IIE4azLCUBq_ptmJwJcFgJKLAQOPcIgkNWuM_x1TZ-SUuaxkYf-yLnz4wPJqh-VTnV9TF-YxXDkukVJlOtNmoBYrR7OdWURYL4QEw1UJQasNDhzL9gqVbd_4KgASTIma4zURNFGmr1k_VWShwh-8w7I2_B8eHuGbbw7WMfIGiA",
+                    "content-length": "0",
+                    "user-agent": "curl/7.68.0-DEV",
+                    "x-ext-auth-allow": "yes",
+                    "x-forwarded-proto": "http",
+                    "x-request-id": "94bd2a1f-02fa-4b1b-b699-44e1487b402d"
+                },
+                "host": "example-app",
+                "id": "8306787481883314548",
+                "method": "POST",
+                "path": "/pets/dogs",
+                "protocol": "HTTP/1.1"
+            }
+        }
+    }
+  }
+}
+
+###
+

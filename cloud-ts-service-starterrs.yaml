@@ -1,0 +1,9 @@
+kaos:
+  enabled: true
+express:
+  middlewares:
+    pino: {}
+    aemon:
+      enabled: false
+      options:
+        issuers: []
