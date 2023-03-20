@@ -1,0 +1,4 @@
+node_modules/
+jest.config.js
+jest-mongodb-config.js
+package-lock.json
