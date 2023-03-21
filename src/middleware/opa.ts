@@ -7,6 +7,25 @@ interface PolicyResponse {
 
 const BASE_URL = 'http://localhost:8181';
 
+export async function opaClaims(req: Request, res: Response){
+  const request = {
+    input: req.body.input
+  }
+  const opauri = `${BASE_URL}/v1/data/claims`;
+
+  try {
+    const response: AxiosResponse<PolicyResponse> = await axios.post(
+      opauri,
+      request
+    );
+
+    res.status(200).json(response.data);
+
+  } catch (error) {
+    res.status(500).send(`Failed to evaluate policy: ${error}`);
+  }
+}
+
 export async function opaJwtPolicy(req: Request, res: Response) {
   const policyRequest = {
     input: req.body.input,

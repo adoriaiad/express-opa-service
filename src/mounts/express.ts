@@ -6,7 +6,7 @@ import helmet, { HelmetOptions } from 'helmet';
 import PinoHttp, { Options as PinoOptions } from 'pino-http';
 import { ConditionalPick } from 'type-fest';
 import useAemon, { AemonMiddlewareOptions } from '../config/aemonMiddleware';
-import { opaMyPolicy, opaGetPolicies, opaJwtPolicy, opaRoles } from '../middleware/opa';
+import { opaMyPolicy, opaGetPolicies, opaJwtPolicy, opaRoles, opaClaims } from '../middleware/opa';
 import Mount from './Mount';
 
 export type ExpressConfig = {
@@ -39,7 +39,7 @@ const mountPoint: Mount<ExpressConfig> = {
       .use(express.json())
       .use(express.urlencoded({ extended: false }))
       .use(PinoHttp(opts.middlewares?.pino))
-      .post('/mypolicy', async (req, res) => opaMyPolicy(req, res))
+      .post('/claims', async (req, res) => opaClaims(req, res))
       .post('/jwtpolicy', async (req, res) => opaJwtPolicy(req, res))
       .post('/roles', async (req, res) => opaRoles(req, res))
       .get('/policies', async (req, res) => opaGetPolicies(req, res))
