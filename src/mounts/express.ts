@@ -6,7 +6,7 @@ import helmet, { HelmetOptions } from 'helmet';
 import PinoHttp, { Options as PinoOptions } from 'pino-http';
 import { ConditionalPick } from 'type-fest';
 import useAemon, { AemonMiddlewareOptions } from '../config/aemonMiddleware';
-import { opaMyPolicy, opaGetPolicies, opaJwtPolicy, opaRoles, opaClaims } from '../middleware/opa';
+import { opaGetPolicies, opaPostRequest } from '../middleware/opa';
 import Mount from './Mount';
 
 export type ExpressConfig = {
@@ -39,9 +39,10 @@ const mountPoint: Mount<ExpressConfig> = {
       .use(express.json())
       .use(express.urlencoded({ extended: false }))
       .use(PinoHttp(opts.middlewares?.pino))
-      .post('/claims', async (req, res) => opaClaims(req, res))
-      .post('/jwtpolicy', async (req, res) => opaJwtPolicy(req, res))
-      .post('/roles', async (req, res) => opaRoles(req, res))
+      .post('/claims', async (req, res) => opaPostRequest(req, res, 'claims'))
+      .post('/jwtpolicy', async (req, res) => opaPostRequest(req, res, 'jwtpolicy'))
+      .post('/mypolicy', async (req, res) => opaPostRequest(req, res, 'mypolicy'))
+      .post('/roles', async (req, res) => opaPostRequest(req, res, 'roles'))
       .get('/policies', async (req, res) => opaGetPolicies(req, res))
     opts.middlewares?.aemon && useAemon(opts.middlewares?.aemon, app);
   },
