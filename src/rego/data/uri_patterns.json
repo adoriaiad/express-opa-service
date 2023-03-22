@@ -1,0 +1,8 @@
+[
+  {"id":"001","method":"GET",   "pattern":"/api/customer"},
+  {"id":"002","method":"POST",  "pattern":"/api/customer"},
+  {"id":"003","method":"DELETE","pattern":"/api/customer/*"},
+  {"id":"004","method":"GET",   "pattern":"/api/customer/*"},
+  {"id":"005","method":"POST",  "pattern":"/api/customer/*"},
+  {"id":"006","method":"PUT",   "pattern":"/api/customer/*"}
+]

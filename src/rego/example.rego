@@ -5,14 +5,7 @@ default allow = false
 allow {
   input.user == "alice"
   input.action == "read"
-  input.resource == "document"
-   http.send({
-    "status" : 401,
-    "headers": {"Content-Type": "application/json"},
-    "body": {
-      "message": "UNAUTHORIZED",
-    }
-  })
+  not input.resource == "document"
 }
 
 main = msg {

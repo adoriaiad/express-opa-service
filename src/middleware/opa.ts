@@ -18,8 +18,7 @@ export async function opaPostRequest(req: Request, res: Response, opaPath: strin
       opauri,
       request
     );
-    res.status(response.status).send({result: response.data});
-
+    res.status(response.status).send(response.data);
   } catch (error) {
     res.status(500).send(`Failed to evaluate policy: ${error}`);
   }
