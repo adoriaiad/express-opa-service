@@ -43,4 +43,5 @@ $ curl -X PUT http://localhost:8181/v1/policies/hello --data-binary @hello.rego
 $ curl -X PUT http://localhost:8181/v1/policies/mypolicy --data-binary @example.rego
 $ curl -X PUT http://localhost:8181/v1/policies/jwtpolicy --data-binary @test.rego
 $ curl -X PUT http://localhost:8181/v1/policies/userroles --data-binary @roles.rego
+$ curl -X PUT http://localhost:8181/v1/policies/claims --data-binary @claims.rego
 ```

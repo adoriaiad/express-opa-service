@@ -1,13 +1,20 @@
 package mypolicy
 
-default allow = false
-
-allow {
-  input.user == "alice"
-  input.action == "read"
-  not input.resource == "document"
+default allow := false
+default response := {
+  "message": "Access denied"
 }
 
-main = msg {
-    msg := sprintf("hello %v", [input.user])
+allow = response {
+  input.user == "alice"
+  input.action == "read"
+  input.resource == "document"
+  response := {
+    "message": "Access granted"
+  }
+}
+
+main = {
+  "allow": allow,
+  "response": response
 }
