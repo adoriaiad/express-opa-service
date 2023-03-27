@@ -39,10 +39,8 @@ const mountPoint: Mount<ExpressConfig> = {
       .use(express.json())
       .use(express.urlencoded({ extended: false }))
       .use(PinoHttp(opts.middlewares?.pino))
-      .post('/claims', async (req, res) => opaPostRequest(req, res, 'claims'))
-      .post('/jwtpolicy', async (req, res) => opaPostRequest(req, res, 'jwtpolicy'))
-      .post('/mypolicy', async (req, res) => opaPostRequest(req, res, 'mypolicy'))
-      .post('/roles', async (req, res) => opaPostRequest(req, res, 'roles'))
+      .post('/iadengage/claims', async (req, res) => opaPostRequest(req, res, 'claims'))
+      .post('/iadengage/policy', async (req, res) => opaPostRequest(req, res, 'policy'))
       .get('/policies', async (req, res) => opaGetPolicies(req, res))
     opts.middlewares?.aemon && useAemon(opts.middlewares?.aemon, app);
   },

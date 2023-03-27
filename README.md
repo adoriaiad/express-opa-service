@@ -20,7 +20,7 @@ opa -h
 docker pull openpolicyagent/opa
 ```
 
-We can run OPA as a server:
+Run OPA as a server:
 ```sh
  docker run -p 8181:8181 openpolicyagent/opa \
     run --server --log-level debug
@@ -39,9 +39,11 @@ opa eval --data input.json 'x := data.x; x == "test"'
 
 Creare o aggiornare una policy:
 ```sh
-$ curl -X PUT http://localhost:8181/v1/policies/hello --data-binary @hello.rego
-$ curl -X PUT http://localhost:8181/v1/policies/mypolicy --data-binary @example.rego
-$ curl -X PUT http://localhost:8181/v1/policies/jwtpolicy --data-binary @test.rego
-$ curl -X PUT http://localhost:8181/v1/policies/userroles --data-binary @roles.rego
-$ curl -X PUT http://localhost:8181/v1/policies/claims --data-binary @claims.rego
+$ curl -X PUT http://localhost:8181/v1/policies/iadengage/claims --data-binary @claims.rego
+$ curl -X PUT http://localhost:8181/v1/policies/iadengage/policy --data-binary @policy.rego
+```
+
+Avviare il servizio ts-opa-service per testare le chiamate
+```sh
+npm start
 ```
