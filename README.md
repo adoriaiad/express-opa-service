@@ -20,24 +20,25 @@ opa -h
 docker pull openpolicyagent/opa
 ```
 
+# AVVIARE IL PROGETTO
 Run OPA as a server:
 ```sh
  docker run -p 8181:8181 openpolicyagent/opa \
     run --server --log-level debug
 ```
 
-Test tha OPA is available
+Test the OPA is available
 ```sh
     curl -i localhost:8181/
 ```
 
-Eseguire le query dal Terminale:
+Esempi per eseguire le query dal Terminale:
 
 ```sh
 opa eval --data input.json 'x := data.x; x == "test"'
 ```
 
-Creare o aggiornare una policy:
+Caricare le policy posizionandosi nella cartella in cui sono presenti i file rego e lanciare i comandi:
 ```sh
 $ curl -X PUT http://localhost:8181/v1/policies/iadengage/claims --data-binary @claims.rego
 $ curl -X PUT http://localhost:8181/v1/policies/iadengage/policy --data-binary @policy.rego
@@ -47,3 +48,5 @@ Avviare il servizio ts-opa-service per testare le chiamate
 ```sh
 npm start
 ```
+
+nel file test.http ci sono esempi di chiamate al servizio opa
